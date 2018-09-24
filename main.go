@@ -2,7 +2,7 @@ package main
 
 import (
 	"gopkg.in/alecthomas/kingpin.v2"
-	"github.com/subnova/kube-genkey/ssh"
+	"github.com/subnova/kube-keygen/ssh"
 	"log"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/kubernetes"
