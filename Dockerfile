@@ -6,7 +6,9 @@ ADD . $GOPATH/src/github.com/subnova/kube-keygen
 RUN cd $GOPATH/src/github.com/subnova/kube-keygen && \
     CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build .
 
-FROM scratch
+FROM alpine:3.7
+
+RUN apk -v --update --no-cache add openssh-keygen
 
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=build /go/src/github.com/subnova/kube-keygen/kube-keygen /kube-keygen
